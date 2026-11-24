@@ -1,0 +1,21 @@
+{
+  "name": "UserManager 2DAW",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [
+    8000
+  ],
+  "portsAttributes": {
+    "8000": {
+      "label": "UserManager HTTP",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "npm install -g --prefix \"$HOME/.local\" opencode-ai",
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/node/.local/bin"
+  }
+}
