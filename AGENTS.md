@@ -7,7 +7,7 @@ Estado: provisional; elaborar y aprobar las instrucciones definitivas antes del 
 - El humano cambia de agente y ejecuta /new. Guardar propuestas aprobadas antes de reiniciar; cambiar a Build en la misma sesión para guardarlas.
 - No consultar material del profesor. No utilizar docs/DESARROLLO.md como contexto técnico. Solo Build, a petición humana y con skill documentar, puede consultar su final y añadir un paso realmente realizado, previa aprobación.
 - Cargar skills solo según necesidad: ears, tdd, git-workflow, conventional-commits, documentar.
-- Mantener estas salvaguardas al elaborar las instrucciones definitivas.
+- Mantener estas salvaguardas al elaborar las instrucciones definitivas, salvo la enmienda de entorno aprobada el 26/11/2026 (constitution.md v1.1).
 
-## Entorno obligatorio (conservar en AGENTS definitivo)
-Todo desarrollo local, ejecución de herramientas Node/npm, pruebas automatizadas, servidor HTTP y operaciones del agente (incluidos Git y gh) se realizará desde la terminal del devcontainer. El navegador del anfitrión accede al puerto reenviado. No ejecutar pruebas en el anfitrión ni usar sus node_modules. Si el entorno no está disponible, detenerse; no simular resultados.
+## Entorno (acuerdo del equipo, enmienda v1.1)
+El agente puede trabajar dentro y fuera del devcontainer. Dentro: desarrollo, Node/npm, pruebas, servidor HTTP y operaciones Git/gh desde la terminal del devcontainer; navegador del anfitrión al puerto 8000 reenviado. Fuera: con autorización explícita, las mismas operaciones desde la terminal del anfitrión. En ningún caso se simulan resultados; si el entorno elegido no está disponible, se detiene la operación.

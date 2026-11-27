@@ -14,7 +14,7 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "npm install -g --prefix \"$HOME/.local\" opencode-ai",
+  "postCreateCommand": "npm install -g --prefix \"$HOME/.local\" @opencode/cli@2",
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:/home/node/.local/bin"
   }
