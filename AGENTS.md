@@ -1,13 +1,29 @@
-# AGENTS.md — instrucciones de arranque (plantilla)
-Estado: provisional; elaborar y aprobar las instrucciones definitivas antes del PRD.
-- Solo Plan (analizar y proponer sin escribir) y Build (ejecutar cambios autorizados). No delegar en subagentes.
-- No generar código hasta aprobar PRD, especificaciones, arquitectura, planes y tareas.
-- Consultar constitution.md; si está en borrador, no tratarlo como aprobado.
-- Toda escritura de archivos en esta fase y operación Git/GitHub requiere autorización explícita previa. Mostrar comando, destino y motivo. No leer credenciales, no eludir permisos ni protecciones.
-- El humano cambia de agente y ejecuta /new. Guardar propuestas aprobadas antes de reiniciar; cambiar a Build en la misma sesión para guardarlas.
-- No consultar material del profesor. No utilizar docs/DESARROLLO.md como contexto técnico. Solo Build, a petición humana y con skill documentar, puede consultar su final y añadir un paso realmente realizado, previa aprobación.
-- Cargar skills solo según necesidad: ears, tdd, git-workflow, conventional-commits, documentar.
-- Mantener estas salvaguardas al elaborar las instrucciones definitivas, salvo la enmienda de entorno aprobada el 26/11/2026 (constitution.md v1.1).
+# AGENTS.md
 
-## Entorno (acuerdo del equipo, enmienda v1.1)
-El agente puede trabajar dentro y fuera del devcontainer. Dentro: desarrollo, Node/npm, pruebas, servidor HTTP y operaciones Git/gh desde la terminal del devcontainer; navegador del anfitrión al puerto 8000 reenviado. Fuera: con autorización explícita, las mismas operaciones desde la terminal del anfitrión. En ningún caso se simulan resultados; si el entorno elegido no está disponible, se detiene la operación.
+**Estado:** definitiva · sustituye la plantilla provisional.
+
+## Modos de operación
+- **Plan:** analizar y proponer; no escribir archivos ni ejecutar acciones con efecto.
+- **Build:** guardar y ejecutar solo con autorización explícita previa, mostrando antes comando, destino y motivo.
+- **Sesiones:** `/new` al iniciar cada fase independiente y cada SPEC. Conservar la sesión al guardar lo aprobado y entre Rojo y Verde.
+
+## Skills
+Cargar solo las necesarias: `ears`, `tdd`, `git-workflow`, `conventional-commits`, `documentar`. No duplicar aquí su contenido ni el de la constitución.
+
+## Fases (toda la planificación en `main`)
+1. Gobierno → 2. PRD → 3. Índice de requisitos → 4. Todas las specs → 5. Arquitectura global → 6. Todos los planes y tareas.
+2. Auditoría y línea base publicada antes de tocar código.
+3. Implementación incremental por ramas `feat/<id>-<slug>`, una SPEC a la vez, con la suite en verde.
+
+Cada artefacto se aprueba explícitamente antes del siguiente y antes de crear ramas.
+
+## Control de cambios
+- Revisión independiente (otro compañero o docente) en cada PR; el autor no aprueba su propio cambio. Sin subagentes.
+- Cambio de requisitos o contratos: proponer en Plan, aprobar, versionar y propagar a EARS, escenarios, tests, trazabilidad y línea base. Sin cambios implícitos.
+- Git/gh: autorización previa para cada escritura (commit, merge, push, PR, cierre). PR de la rama a `main`, integración local `--ff-only`, sin force; sincronizar con `fetch`/`status` y, si el remoto avanzó, detener y pedir instrucciones.
+
+## Entorno
+OpenCode, Node/npm, todas las pruebas y el servidor HTTP **dentro del devcontainer**, desde su terminal. Git/gh pueden ejecutarse desde la terminal del **anfitrión** solo con autorización explícita previa por operación (según `constitution.md`, P11 y §3.4); la misma autorización se exige si se ejecutan desde el devcontainer. El navegador del anfitrión solo para la UI en el puerto 8000 reenviado (nunca `file://`). Sin resultados simulados; si el devcontainer no está disponible, se detienen las operaciones que dependen de él.
+
+## Archivos
+Los PASOS de planificación (fases, specs, arquitectura, planes, auditoría, línea base, trazabilidad) se guardan **fuera del repositorio**, en la carpeta de plan de OpenCode. `docs/DESARROLLO.md` no es contexto técnico: solo se consulta su final y se añade un paso ejecutado, con autorización y skill `documentar`.
